@@ -1,0 +1,341 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+body{
+    width: 100%;
+    height: 100%;
+}
+/*定义动画，各个版本的兼容，分为左手和右手*/
+@-webkit-keyframes handShakeRight{
+    0% {
+        -webkit-transform: rotate(180deg);
+    }
+
+    30%{
+        -webkit-transform:rotate(190deg);
+    }
+    60%{
+        -webkit-transform:rotate(180deg);
+    }
+    90% {
+        -webkit-transform: rotate(170deg);
+    }
+
+    100%{
+        -webkit-transform:rotate(180deg);
+    }
+}
+@-moz-keyframes handShakeRight{
+    0% {
+        -moz-transform: rotate(180deg);
+    }
+
+    30%{
+        -moz-transform:rotate(190deg);
+    }
+    60%{
+        -moz-transform:rotate(180deg);
+    }
+    90% {
+        -moz-transform: rotate(170deg);
+    }
+
+    100%{
+        -moz-transform:rotate(180deg);
+    }
+}
+@keyframes handShakeRight{
+    0% {
+        transform: rotate(180deg);
+    }
+
+    30%{
+        transform:rotate(190deg);
+    }
+    60%{
+        transform:rotate(180deg);
+    }
+    90% {
+        transform: rotate(170deg);
+    }
+
+    100%{
+        transform:rotate(180deg);
+    }
+}
+@-webkit-keyframes handShakeLeft{
+    0%{
+        -webkit-transform:rotate(0deg);
+    }
+    30%{
+        -webkit-transform:rotate(-10deg);
+    }
+    60%{
+        -webkit-transform:rotate(0deg);
+    }
+    90%{
+        -webkit-transform:rotate(10deg);
+    }
+    100%{
+        -webkit-transform:rotate(0deg);
+    }
+}
+@-moz-keyframes handShakeLeft{
+    0%{
+        -moz-transform:rotate(0deg);
+    }
+    30%{
+        -moz-transform:rotate(-10deg);
+    }
+    60%{
+        -moz-transform:rotate(0deg);
+    }
+    90%{
+        -moz-transform:rotate(10deg);
+    }
+    100%{
+        -moz-transform:rotate(0deg);
+    }
+}
+@keyframes handShakeLeft{
+    0%{
+        transform:rotate(0deg);
+    }
+    30%{
+        transform:rotate(-10deg);
+    }
+    60%{
+        transform:rotate(0deg);
+    }
+    90%{
+        transform:rotate(10deg);
+    }
+    100%{
+        transform:rotate(0deg);
+    }
+}
+/*设置hover的动画*/
+@-webkit-keyframes change{
+    0%{
+        transform:scale(1);
+    }
+    50%{
+        transform: scale(0.5);
+    }
+   
+    100%{
+        transform:scale(1);
+    }
+}
+/*位移的动画*/
+@-webkit-keyframes walk{
+    0%{
+        transform:translateX(0);
+    }
+    30%{
+        transform:translateX(-100px);
+    }
+    60%{
+        transform:translateX(0);
+    }
+    90%{
+        transform:translate(100px);
+    }
+    100%{
+        transform:translateX(0);
+    }
+}
+/*熊的整体盒子*/
+#bear {
+    width: 300px;
+    height: 440px;
+    margin: 0 auto;
+    margin-top: 40px;
+    position: relative;
+    -webkit-animation:walk 4s ease-in infinite;
+}
+#bear:hover{
+    -webkit-animation:change 4s ease infinite;
+    cursor: pointer;
+}
+
+/*耳朵*/
+.ear {
+    position: relative;
+}
+
+.ear>div {
+    width: 45px;
+    height: 50px;
+    border: 3px solid #000;
+    border-radius: 55%;
+    position: absolute;
+    transform: rotate(45deg);
+    left: 183px;
+}
+
+.ear>div div {
+    width: 28px;
+    height: 32px;
+    border: 1px solid #000;
+    border-radius: 50%;
+    margin: 14px 10px;
+}
+
+.ear:nth-child(2){
+    transform:matrix(-1,0,0,1,0,0);
+    /*可以在这里找参数http://www.zhangxinxu.com/study/201206/css3-transform-matrix-mirror.html*/
+}
+/*头部*/
+.head {
+    width: 150px;
+    height: 180px;
+    border: 4px solid #000;
+    border-radius: 60%;
+    position: absolute;
+    top: 28px;
+    left: 69px;
+    z-index: 9;
+}
+/*眼睛*/
+.eye {
+    width: 12px;
+    height: 16px;
+    border: 1px solid #000;
+    border-radius: 50%;
+    background-color: #000;
+}
+
+.eye:nth-child(1) {
+    position: absolute;
+    left: 40px;
+    top: 50px;
+}
+
+.eye:nth-child(2) {
+    position: absolute;
+    right: 40px;
+    top: 50px;
+}
+/*下巴*/
+.jaw {
+    width: 120px;
+    height: 90px;
+    border: 3px solid #000;
+    border-radius: 65%;
+    position: absolute;
+    bottom: -3px;
+    left: 12px;
+    z-index: 10;
+}
+
+.nose {
+    width: 45px;
+    height: 28px;
+    border-radius: 65%;
+    background-color: #000;
+    position: absolute;
+    left: 36px;
+    top: 16px;
+}
+/*身体，手部和脚部的定义*/
+.body {
+    width: 180px;
+    height: 250px;
+    border: 4px solid #000;
+    border-radius: 80% 80% 80% 80%;
+    position: absolute;
+    top: 180px;
+    left: 55px;
+}
+
+.hand {
+    width: 125px;
+    height: 60px;
+    border: 3px solid #000;
+    border-right-color: transparent;
+    border-radius: 60% 90% 90% 60%;
+    position: absolute;
+    transform-origin: right center;
+}
+
+.hand:nth-child(1) {
+    top: 15px;
+    transform:rotate(180deg);
+    -webkit-animation: handShakeRight 1s infinite ease-in-out;
+    -moz-animation: handShakeRight 1s infinite ease-in-out;
+    animation: handShakeRight 1s infinite ease-in-out;
+}
+
+.hand:nth-child(2) {
+    left: -78px;
+    top: 15px;
+    -webkit-animation: handShakeLeft 1s infinite ease-in-out;
+    -moz-animation: handShakeLeft 1s infinite ease-in-out;
+    animation: handShakeLeft 1s infinite ease-in-out;
+}
+
+.hand div {
+    width: 30px;
+    height: 40px;
+    border: 2px solid #000;
+    border-radius: 50%;
+    position: absolute;
+    left: 10px;
+    top: 8px;
+}
+
+.hand:nth-child(1) div {
+    transform: rotate(15deg);
+}
+
+.hand:nth-child(2) div {
+    transform: rotate(-15deg);
+}
+/*脚部*/
+.foot {
+    width: 90px;
+    height: 110px;
+    border: 2px solid #000;
+    border-radius: 50%;
+    position: absolute;
+}
+
+.foot:nth-child(3) {
+    left: -20px;
+    top: 140px;
+    transform: rotate(-15deg);
+}
+
+.foot:nth-child(4) {
+    left: 110px;
+    top: 140px;
+    transform: rotate(15deg);
+}
+
+.foot div {
+    width: 65px;
+    height: 80px;
+    border: 2px solid #000;
+    border-radius: 65%;
+    position: absolute;
+}
+
+.foot:nth-child(3) div {
+    left: 9px;
+    top: 12px;
+}
+
+.foot:nth-child(4) div {
+    right: 9px;
+    top: 12px;
+}
+/*整个身体的着色*/
+.brown {
+    background-color: #9a5f00;
+}
+
+.snow {
+    background-color: #f2c6bd;
+}
